@@ -1,6 +1,6 @@
 $ ->
   posts_plain_attributes = ["author","karma","submitted"]
-  $("#posts tbody [data-id]:lt(10)").each ->
+  $("#posts tbody [data-id]").each ->
     row = $(this)
     id = row.data("id")
 
