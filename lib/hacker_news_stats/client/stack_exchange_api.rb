@@ -15,15 +15,17 @@ module HackerNewsStats
           su['display_name'] == name
         end
         @guessed_profile = profiles.first
+      rescue
+        nil
       end
-    end
 
-    def profile
-      @guessed_profile
-    end
+      def profile
+        @guessed_profile
+      end
 
-    def reputation
-      profile['reputation'] rescue nil
+      def reputation
+        profile['reputation'] rescue nil
+      end
     end
   end
 end
