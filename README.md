@@ -30,7 +30,7 @@ Copy the example configuration file for Twitter and fill it up:
 
 Call executable:
 
-    $ bundle exec hacker_news_stats [web|cli]
+    $ bundle exec bin/hacker_news_stats [web|cli]
 
 Default mode runs a Puma Webserver, visit http://localhost:4567 to see the home page
 
