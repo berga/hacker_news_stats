@@ -46,7 +46,7 @@ module HackerNewsStats
 
     # stackoverflow reputation
     def stack_reputation
-      @stack_user.reputation if @stack_user
+      stack_client.reputation if @stack_user
     end
 
     # twitter matching user
@@ -73,7 +73,7 @@ module HackerNewsStats
     end
 
     def stack_client
-      @stack_client ||= Client::StackExchangeApi.new(:stackoverflow)
+      @stack_client ||= Client::StackExchangeApi.new(HackerNewsStats.configuration.stack_exchange || {site: :stackoverflow})
     end
 
     def twitter_client

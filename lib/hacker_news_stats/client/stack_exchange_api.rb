@@ -6,16 +6,17 @@ module HackerNewsStats
       include HTTParty
       base_uri 'https://api.stackexchange.com'
 
-      def initialize(site)
-        @options = {site: site}
+      def initialize(options={})
+        @options = options
       end
 
       def guess(name)
-        profiles = self.class.get('/users', query: @options.merge({inname: name}))['items'].select do |su|
+        profiles = self.class.get('/users', query: @options.merge({inname: name}))
+        @guessed_profile = profiles['items'].select do |su|
           su['display_name'] == name
-        end
-        @guessed_profile = profiles.first
-      rescue
+        end.first
+      rescue => e
+        puts "Exception guessing Stackexchange user #{name} error: #{profiles.body}"
         nil
       end
 

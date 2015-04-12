@@ -12,4 +12,5 @@
 *.o
 *.a
 mkmf.log
-/config/twitter.yml
+config/twitter.yml
+config/stack_exchange.yml

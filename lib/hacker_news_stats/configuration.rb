@@ -11,14 +11,16 @@ module HackerNewsStats
   end
 
   class Configuration
-    attr_accessor :twitter
+    CONFIG_FILES = [:twitter, :stack_exchange]
+    attr_accessor *CONFIG_FILES
 
     def initialize
-      @twitter = YAML.load_file(
-          File.expand_path(
-              File.join(File.dirname(__FILE__), '..', '..', 'config', 'twitter.yml')
-          )
-      ) rescue nil
+      CONFIG_FILES.each do |file|
+        file_path = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'config', "#{file}.yml"))
+        next unless File.exist?(file_path)
+        conf = YAML.load_file(file_path) rescue nil
+        instance_variable_set(:"@#{file}", conf)
+      end
     end
   end
 end
