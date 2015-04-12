@@ -11,16 +11,19 @@ module HackerNewsStats
       end
 
       def guess(name)
-        @guessed_profile = self.class.get('/users', query: @options.merge({inname: name}))
+        profiles = self.class.get('/users', query: @options.merge({inname: name}))['items'].select do |su|
+          su['display_name'] == self.author
+        end
+        @guessed_profile = profiles.first
       end
+    end
 
-      def profile
-        @guessed_profile
-      end
+    def profile
+      @guessed_profile
+    end
 
-      def reputation
-        profile['reputation'] rescue nil
-      end
+    def reputation
+      profile['reputation'] rescue nil
     end
   end
 end

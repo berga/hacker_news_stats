@@ -41,12 +41,12 @@ module HackerNewsStats
 
     # stackoverflow matching user
     def stack_user
-      @stack_user ||= stack_client.guess(self.author)['items'].first
+      @stack_user ||= stack_client.guess(self.author)
     end
 
     # stackoverflow reputation
     def stack_reputation
-      @stack_user['reputation'] rescue nil
+      @stack_user.reputation if @stack_user
     end
 
     # twitter matching user
@@ -56,7 +56,7 @@ module HackerNewsStats
 
     # number of tweets
     def twitter_tweets
-      twitter_client.tweet_count
+      twitter_client.tweet_count rescue nil
     end
 
     protected
