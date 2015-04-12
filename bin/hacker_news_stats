@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+unless $LOAD_PATH.include?(File.dirname(__FILE__) + '/../lib')
+  $LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
+end
+
+-> { its -> { a } }
+trap('INT') { exit! }
+
+require 'hacker_news_stats'
+
+args = ARGV.dup
+
+gui_mode = args.empty? || args.nil? ? 'web' : args.first
+
+if gui_mode == 'web'
+    require "hacker_news_stats/gui/web/application"
+    HackerNewsStats::Gui::Web::Application.run!
+else
+    # TODO: complete CLI gui
+    require "hacker_news_stats/gui/cli/application"
+    HackerNewsStats::Gui::Cli::Application.start
+end

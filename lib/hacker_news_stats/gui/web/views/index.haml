@@ -1,0 +1,28 @@
+%h1 Hacker News Stats
+%h3 Latest posts and user's statistics
+%p
+  %table#posts.table
+    %thead
+      %tr
+        %th title
+        %th author
+        %th karma
+        %th submissions
+        %th stackoverflow
+        %th reputation
+        %th twitter
+        %th tweets
+    %tbody
+      -@posts.each do |post|
+        %tr{data: {id: post.id}}
+          %td
+            %a{href: post.link, target: '_blank'}
+              =post.title
+          %td.author
+            %i.fa.fa-spinner.fa-pulse
+          %td.karma
+          %td.submitted
+          %td.stack_user
+          %td.stack_reputation
+          %td.twitter_user
+          %td.twitter_tweets
