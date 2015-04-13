@@ -21,9 +21,10 @@ Execute:
 
 ## Configuration
 
-Copy the example configuration file for Twitter and fill it up:
+Copy the example configuration files for Twitter and StackExchange fill it up:
 
     $ cp config/twitter.example.yml config/twitter.yml
+    $ cp config/stack_exchange.example.yml config/stack_exchange.yml
 
 
 ## Usage
@@ -33,8 +34,6 @@ Call executable:
     $ bundle exec bin/hacker_news_stats [web|cli]
 
 Default mode runs a Puma Webserver, visit http://localhost:4567 to see the home page
-
-TODO: CLI gui
 
 ## Contributing
 
