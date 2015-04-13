@@ -16,7 +16,6 @@ if gui_mode == 'web'
     require "hacker_news_stats/gui/web/application"
     HackerNewsStats::Gui::Web::Application.run!
 else
-    # TODO: complete CLI gui
     require "hacker_news_stats/gui/cli/application"
     HackerNewsStats::Gui::Cli::Application.start
 end

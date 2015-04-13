@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "sax-machine"
   spec.add_dependency "ox", "~> 2.1.2"
   spec.add_dependency "twitter"
-  spec.add_dependency "vedeu"
+  spec.add_dependency "awesome_print"
   spec.add_dependency "puma"
   spec.add_dependency "sinatra"
   spec.add_dependency "sinatra-contrib"
